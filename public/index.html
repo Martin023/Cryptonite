@@ -1,172 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cryptonite_</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    <style>
-      :root {
-        --bs-font-sans-serif: "DM Sans", sans-serif;
-      }
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+    <div class="container">
+      <a href="#" class="navbar-brand">Software bootcamp</a>
+      <!--  add bootsrap icon to using class name in span tag  -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      @media (min-width: 576px) {
-        .card {
-          border: 0;
-          box-shadow: rgb(0 0 0 / 5%) 0px 10px 20px;
-          border-radius: 10px;
-        }
-
-        .card-img-top {
-          width: 100%;
-          height: 20vw;
-          object-fit: cover;
-        }
-      }
-    </style>
-
-    <title>Street Food Kigali</title>
-  </head>
-
-  <body>
-    <div class="container mt-2" style="max-width: 72em">
-
-      <nav class="navbar bg-white navbar-light">
-        <div class="container-fluid">
-          <span class="navbar-brand m-0 h4 fw-bold">Street Food Kigali</span>
-          <span class="nav-link border rounded-pill bg-light">
-            <span id="balance">0</span>
-            cUSD
-          </span>
-        </div>
-      </nav>
-
-      <div class="alert alert-warning sticky-top mt-2" role="alert">
-        <span id="notification">⌛ Loading...</span>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a href="#learn" class="nav-link ">What You'll Learn</a>
+          </li>
+          <li class="nav-item">
+            <a href="#questions" class="nav-link">Questions</a>
+          </li>
+          <li class="nav-item">
+            <a href="#instructions" class="nav-link">Instructions</a>
+          </li>
+        </ul>
       </div>
-  
-      <div class="mb-4" style="margin-top: 4em">
-        <a
-          class="btn btn-dark rounded-pill"
-          data-bs-toggle="modal"
-          data-bs-target="#addModal"
-        >
-          Add product
-        </a>
-      </div>
-
-      <main id="marketplace" class="row"></main>
     </div>
+  </nav>
 
-<!--Modal-->
-    <div
-      class="modal fade"
-      id="addModal"
-      tabindex="-1"
-      aria-labelledby="newProductModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="newProductModalLabel">New Product</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-row">
-                <div class="col">
-                  <input
-                    type="text"
-                    id="newProductName"
-                    class="form-control mb-2"
-                    placeholder="Enter name of product"
-                  />
-                </div>
-                <div class="col">
-                  <input
-                    type="text"
-                    id="newImgUrl"
-                    class="form-control mb-2"
-                    placeholder="Enter image url"
-                  />
-                </div>
-                <div class="col">
-                  <input
-                    type="text"
-                    id="newProductDescription"
-                    class="form-control mb-2"
-                    placeholder="Enter product description"
-                  />
-                </div>
-                <div class="col">
-                  <input
-                    type="text"
-                    id="newLocation"
-                    class="form-control mb-2"
-                    placeholder="Enter location"
-                  />
-                </div>
-                <div class="col">
-                  <input
-                    type="text"
-                    id="newPrice"
-                    class="form-control mb-2"
-                    placeholder="Enter price"
-                  />
-                </div>
+  <!-- hero section -->
+  <!-- bg dark for a darkbackground, text light for light text, p-5 for padding on all sides p-lg-0 paddingon largr screens 0, text center for centering text, text sm start for starting text on small screens -->
+  <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+    <div class="container">
+      <!-- d flex for adding flxbox the middle value adds a breakpoint ie use flex box to the breakpoint -->
+      <div class="d-sm-flex align-items-center justify-content-between">
+        <div>
+          <h1>Become a <span class="text-warning">
+              Web Developer
+            </span> </h1>
+          <!-- lead class for making text a little bigger and my for margin on y axis -->
+          <p class="lead my-4">
+            We focus on teaching our students the fundamentals of the latest and
+            greatest technologies to prepare themfor their first dev role.
+          </p>
+
+          <button class="btn btn-warning btn-lg " data-bs-toggle="modal" data-bs-target="#enroll">
+            Start the enrollment
+          </button>
+        </div>
+        <!-- image fluid class for responsive image and tofit inthe container and the w-50 class for reducing width by 50% -->
+        <!-- d for display eg d -none for hiding the image, d-sm-block for hiding the image on small screens -->
+        <img src="img/bitcoin.svg" alt="" class="img-fluid w-50 d-none d-sm-block">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- news letter section -->
+  <section class="bg-warning text-light p-5">
+    <div class="container">
+      <div class="d-md-flex justify-content-between align-items-center">
+        <!-- add margin bottom property mb-value and mb-md-0 for margin bottom on medium screens  -->
+        <h3 class="mb-3 mb-md-0">Want a more comprehensive brochure? W'ell send it right to your email. </h3>
+        <div class="input-group news-input">
+          <input type="text" class="form-control" placeholder="Enter Email">
+          <button class="btn btn-dark btn-lg">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- boxes sect -->
+  <section class="p-5">
+    <div class="container">
+      <!-- using css grid,we only have to use te row class -->
+      <!-- g-4 for gap between the boxes all round you can use gy and gx for y and x axis-->
+      <div class="row text-center g-4">
+        <!-- and col for the individual items inthe grid div md means it will add the columns on mediumscreens and upotherwise on small, they stack -->
+        <div class="col-md">
+          <div class="card bg-dark text-light">
+            <div class="card-body text-center">
+              <div class="h1 mb-3">
+                <i class="bi bi-people"></i>
               </div>
-            </form>
+              <h3 class="card-title mb-3 ">Physical Learning</h3>
+              <p class="card-text">
+                
+                The campus provides a conducive learning environment for our students to learn and grow.
+                This is backed up by provision of computers, internet and other learning materials.
+              </p>
+              <!-- using button classes on links -->
+              <a href="" class="btn btn-warning">Read More</a>
+            </div>
           </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-light border"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-dark"
-              data-bs-dismiss="modal"
-              id="newProductBtn"
-            >
-              Add product
-            </button>
+        </div>
+        <div class="col-md">
+          <div class="card bg-secondary text-light">
+            <div class="card-body text-center">
+              <div class="h1 mb-3">
+                <i class="bi bi-laptop"></i>
+              </div>
+              <h3 class="card-title mb-3 ">Learn Online</h3>
+              <p class="card-text">
+                welcome to our online classes, we provide awesome classes online with just a click of a button
+              </p>
+              <!-- using button classes on links -->
+              <a href="" class="btn btn-dark">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card bg-dark text-light">
+            <div class="card-body text-center">
+              <!-- using headings as size classes in divs -->
+              <div class="h1 mb-3">
+                <i class="bi bi-person-square"></i>
+              </div>
+              <h3 class="card-title mb-3 ">Hybrid </h3>
+              <p class="card-text">
+                How about a mixture of both online and physical. That can be arranged. Hit us up for more info.
+              </p>
+              <!-- using button classes on links -->
+              <a href="" class="btn btn-warning">Read More</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-<!--/Modal-->
+  </section>
+  <!-- Learn sections -->
 
-    <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-    crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/ethereum-blockies@0.1.1/blockies.min.js"></script>
-  </body>
+  <section class="p-5 " id="learn">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+
+        <div class="col-md">
+          <img src="img/sharing_knowledge_03vp.svg " alt="" class="img-fluid">
+        </div>
+        <div class="col-md p-5">
+          <h2>Learn The Fundamentals</h2>
+          <p class="lead">
+            Want to start on any tech. Is it full-stack, Crypto, System development. We feature the best engineers from
+            the best companies in the world.
+            Also want to earn? sign up to get a platform where can share what you know and get DIRECTLY paid with Celo
+            cypto.
+
+          </p>
+          <p class="lead">
+            - Introduction to web development <br>
+            - Introduction to Blockchain<br>
+            - Introduction to system development<br>
+            And many more!!
+          </p>
+          <a href="#" class="btn btn-light mt-3">
+            <i class="bi bi-chevron-right"></i> Read More
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="p-5 bg-dark text-light" id="learn">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+
+
+        <div class="col-md p-5">
+          <h2>Learn React</h2>
+          <p class="lead">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit distinctio iusto soluta, autem porro dolorem.
+
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet
+            consectetur adipisicing elit.
+            Saepe asperiores tempora assumenda provident eos totam dolore officiis fuga natus doloribus, non vero sequi
+            harum debiti
+            s voluptatum! Natus deleniti ab assumenda.
+          </p>
+          <a href="#" class="btn btn-light mt-3">
+            <i class="bi bi-chevron-right"></i> Read More
+          </a>
+
+        </div>
+        <div class="col-md">
+          <img src="http://localhost:3000/img/sharing_knowledge_03vp.svg" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ's Accordion section -->
+  <section id="questions" class="p-5">
+    <div class="container">
+      <h2 class="text-center mb-4">
+        Frequently Asked Questions
+      </h2>
+      <div class="accordion accordion-flush" id="questions">
+        <!-- item 1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#question-one" aria-expanded="false" aria-controls="question-one">
+              Where do I start?
+            </button>
+          </h2>
+
+          <div id="question-one" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#questions">
+            <div class="accordion-body">Simply contact us via our email address or visit any our physical offices. For a start we recommend you enter your email for the complete brochure and you will be able to learn more about Cryptonite School.</div>
+          </div>
+        </div>
+        <!-- item 2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#question2" aria-expanded="false" aria-controls="question2">
+              Where are we loacted?
+            </button>
+          </h2>
+          <div id="question2" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+            data-bs-parent="#questions">
+            <div class="accordion-body">We have physical locations in kenya , Uganda , and Rwanda. We also provide a remote office environment to cater for our 
+              online and hybrid students. </div>
+          </div>
+        </div>
+        <!-- item 3 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#question3" aria-expanded="false" aria-controls="question3">
+              What languages should I know?
+            </button>
+          </h2>
+          <div id="question3" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+            data-bs-parent="#questions">
+            <div class="accordion-body">English...Haha! . Our courses cater for both beginners and Experinced courses so even if you are just starting out, there is a place for you at Cryptonite!</div>
+          </div>
+        </div>
+        <!-- item 4 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#question4" aria-expanded="false" aria-controls="question3">
+              Are you going to place me in a job?
+            </button>
+          </h2>
+          <div id="question4" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+            data-bs-parent="#questions">
+            <div class="accordion-body">You will be a job cretor after completing our courses hence you won't even need us for job placement. We provide current and 
+              emerging skills that will help you create your own job as well as keep you in the frontline for any new jobs.
+            </div>
+          </div>
+
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#question5" aria-expanded="false" aria-controls="question3">
+              How do I Buy a course?
+            </button>
+          </h2>
+          <div id="question5" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+            data-bs-parent="#questions">
+            <div class="accordion-body">The most convenient way <span>Celo Crypto</span>.Celo Crypto is an emerging currency that will help you buy the coures with ease withut having to 
+            change currency. Simply create a wallet and you will be able to transact with celo. </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- instructors section -->
+  <section id="instructors" class="p-5 bg-warning">
+    <div class="container">
+      <h2 class="text-center text-white">Our Instructors</h2>
+      <p class="lead text-center text-white mb-5">
+        Meet our geniuses with over 7 years of experience in the industry.
+      </p>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card bg-light">
+            <div class="card-body text-center">
+              <img src="https://randomuser.me/api/portraits/men/10.jpg" class="rounded-circle mb-3" alt="">
+              <h3 class="card-title mb-3">John Doe</h3>
+              <p class="card-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, nam deleniti? Quidem aperiam
+                eveniet, incidunt dolore cupiditate reiciendis mollitia atque.
+              </p>
+              <!-- socialmedia icons and the text dark property is to change fromthe default blue to black -->
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card bg-light">
+            <div class="card-body text-center">
+              <img src="https://randomuser.me/api/portraits/women/11.jpg" class="rounded-circle mb-3" alt="">
+              <h3 class="card-title mb-3">Jane Doe</h3>
+              <p class="card-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, nam deleniti? Quidem aperiam
+                eveniet, incidunt dolore cupiditate reiciendis mollitia atque.
+              </p>
+              <!-- socialmedia icons and the text dark property is to change fromthe default blue to black -->
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card bg-light">
+            <div class="card-body text-center">
+              <img src="https://randomuser.me/api/portraits/men/12.jpg" class="rounded-circle mb-3" alt="">
+              <h3 class="card-title mb-3">Kevin Doe</h3>
+              <p class="card-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, nam deleniti? Quidem aperiam
+                eveniet, incidunt dolore cupiditate reiciendis mollitia atque.
+              </p>
+              <!-- socialmedia icons and the text dark property is to change fromthe default blue to black -->
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card bg-light">
+            <div class="card-body text-center">
+              <img src="https://randomuser.me/api/portraits/women/10.jpg" class="rounded-circle mb-3" alt="">
+              <h3 class="card-title mb-3">Mary Doe</h3>
+              <p class="card-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, nam deleniti? Quidem aperiam
+                eveniet, incidunt dolore cupiditate reiciendis mollitia atque.
+              </p>
+              <!-- socialmedia icons and the text dark property is to change fromthe default blue to black -->
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map and contact section -->
+
+  <section class="p-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md">
+          <h2 class="text-center mb-4">
+            Contact Us
+          </h2>
+          <ul class="list-group list-group-flush lead">
+            <li class="list-group-item">
+              <span class="fw-bold">Main Location:</span>
+              Uptown - New York, NY
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Admissions phone:</span>
+              (555) 555-5555
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Accomodation phone:</span>
+              (333) 333-3333
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Admissions email:</span>
+              Cryptonite@school.com
+            </li>
+
+          </ul>
+        </div>
+        <div class="col-md" id="map">
+          <h2 class="text-center mb-4">
+            Map
+          </h2>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9489908739!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCentral+Park!5e0!3m2!1sen!2sus!4v1408111832978"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer section -->
+  <footer class="p-5 bg-dark text-white text-center position-relative">
+    <div class="container">
+      <p class="lead">Copyright &copy; 2022 Frontend Developer</p>
+      <!-- position absolute against the footer div -->
+      <a href="#" class="position-absolute bottom-0 end-0 p-5">
+        <i class="bi bi-arrow-up-circle h1"></i>
+        <!-- bootstrap icon for arrow up-back to top -->
+      </a>
+    </div>
+  </footer>
+  <!-- Modal -->
+  <div class="modal fade" id="enroll" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Welcome</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="lead">Fill this form and our team will reach you shortly </p>
+          <form action="">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="text" class="form-control" id="phone" placeholder="Enter phone">
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
